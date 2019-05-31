@@ -1,5 +1,5 @@
 <template>
-  <div id="nav" :class="{'light-nav' : !isDarkMode, 'dark-nav' : isDarkMode}">
+  <div id="nav" :class="{'nav-light' : !isDarkMode, 'nav-dark' : isDarkMode}">
     <div class="nav-1">
       <img src="@/assets/DCHQ-small.svg">
       <router-link to="/" :class="{'light-nav' : !isDarkMode, 'dark-nav' : isDarkMode}">Home</router-link>
