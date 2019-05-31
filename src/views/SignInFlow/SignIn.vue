@@ -24,7 +24,7 @@
           v-model="password"
           required
         >
-        <button>Sign In</button>
+        <button class="btn">Sign In</button>
       </form>
       <router-link
         to="/recover"
@@ -103,5 +103,11 @@ export default {
 
 .login {
   width: 400px;
+}
+
+.btn {
+  &:hover {
+    cursor: pointer;
+  }
 }
 </style>

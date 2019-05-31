@@ -1,14 +1,17 @@
 <template>
-  <div id="nav">
+  <div id="nav" :class="{'light-nav' : !isDarkMode, 'dark-nav' : isDarkMode}">
     <div class="nav-1">
       <img src="@/assets/DCHQ-small.svg">
       <router-link to="/" :class="{'light-nav' : !isDarkMode, 'dark-nav' : isDarkMode}">Home</router-link>
-      <router-link to="/manage">Manage users</router-link>
-      <router-link to="/team">Team</router-link>
+      <router-link
+        to="/manage"
+        :class="{'light-nav' : !isDarkMode, 'dark-nav' : isDarkMode}"
+      >Manage users</router-link>
+      <router-link to="/team" :class="{'light-nav' : !isDarkMode, 'dark-nav' : isDarkMode}">Team</router-link>
     </div>
-    <a @click="onClick">
+    <a @click="onClick" class="logout-btn">
       Logout
-      <img src="@/assets/logout.svg">
+      <img class="logout-icon" src="@/assets/logout.svg">
     </a>
   </div>
 </template>
@@ -44,12 +47,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.nav-light {
+  background: $white;
+}
+
+.nav-dark {
+  background: $super-dark-blue;
+}
+
 #nav {
   padding: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: $super-dark-blue;
   box-sizing: border-box;
   width: 100%;
   padding: 20px 5%;
@@ -79,5 +89,18 @@ export default {
   img {
     margin-right: 20px;
   }
+}
+
+.logout-btn {
+  display: flex;
+  justify-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.logout-icon {
+  margin-left: 4px;
 }
 </style>

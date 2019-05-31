@@ -3,14 +3,32 @@
     <Header/>
     <div class="container">
       <div class="spread">
-        <h1>Dashboard</h1>
-        <div class="toggle">
+        <h1 :class="{'dark' : !isDarkMode, 'light' : isDarkMode}">Dashboard</h1>
+        <div class="toggle" :class="{'light-box' : isDarkMode, 'dark-box' : !isDarkMode}">
           <div ref="days" class="days" @click="toggleDays">Days</div>
           <div ref="weeks" class="weeks" @click="toggleWeeks">Week</div>
           <div ref="months" class="months" @click="toggleMonths">Month</div>
         </div>
       </div>
       <apexchart width="100%" height="300px" type="area" :options="chartOptions" :series="series"></apexchart>
+      <iframe
+        v-if="isDarkMode"
+        width="600"
+        height="450"
+        src="https://datastudio.google.com/embed/reporting/1E-VVD68LbwjTfwaYkrVyIDLbpD86cT8s/page/zfFr"
+        frameborder="0"
+        style="border:0"
+        allowfullscreen
+      ></iframe>
+      <iframe
+        v-if="!isDarkMode"
+        width="600"
+        height="450"
+        src="https://datastudio.google.com/embed/reporting/1-0_qK_CHrk7i9Ayvd08H33p_yEvXp0Hd/page/zfFr"
+        frameborder="0"
+        style="border:0"
+        allowfullscreen
+      ></iframe>
     </div>
   </div>
 </template>
@@ -21,6 +39,11 @@ import Header from "@/components/Header.vue";
 
 export default {
   name: "home",
+  computed: {
+    isDarkMode() {
+      return this.$store.getters.isDarkMode;
+    }
+  },
   components: {
     Header,
     apexchart: VueApexCharts
@@ -31,7 +54,7 @@ export default {
         colors: ["#14f1d9", "#7b42f6"],
         legend: {
           labels: {
-            colors: ["white"]
+            colors: [this.$store.getters.isDarkMode ? "white" : "black"]
           },
           position: "top"
         },
@@ -132,10 +155,15 @@ export default {
   align-items: center;
   margin: 40px 0;
   width: 100%;
+  margin-bottom: 40px;
 }
 
-h1 {
-  @include heading-3;
+h1.dark {
+  @include heading-3($black);
+}
+
+h1.light {
+  @include heading-3($white);
 }
 
 .toggle {
@@ -147,8 +175,6 @@ h1 {
   padding: 2px;
   display: flex;
   flex-wrap: nowrap;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.08);
 
   &:hover {
     cursor: pointer;
