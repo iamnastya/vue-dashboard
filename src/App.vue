@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss">
 * {
-  transition: 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 body {

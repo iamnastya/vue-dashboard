@@ -67,6 +67,10 @@ export default {
   a {
     font-weight: bold;
     color: $dark-gray;
+    &:hover {
+      color: $middle-blue;
+    }
+
     &.router-link-exact-active.dark-nav {
       color: $white;
     }
