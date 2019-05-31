@@ -6,12 +6,23 @@
 
 <script>
 import "animate.css";
+import Vue from "vue";
+import VueAnalytics from "vue-analytics";
+
+Vue.use(VueAnalytics, {
+  id: "UA-141217049-1"
+});
 
 export default {
   name: "App",
   mounted() {
     const isDarkMode = this.$store.getters.isDarkMode;
     document.body.style.background = isDarkMode ? "#212c4f" : "f0f3f5";
+  },
+  methods: {
+    track() {
+      this.$ga.page("/");
+    }
   }
 };
 </script>
