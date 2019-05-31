@@ -22,7 +22,14 @@ export default {
 }
 
 body {
+  margin: 0;
   background: $dark-blue;
+}
+
+line,
+text {
+  stroke: $light-gray;
+  opacity: 0.2;
 }
 
 h1 {
@@ -38,16 +45,7 @@ p {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $white;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: $white;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  text-align: center;
 }
 
 .h4 {
