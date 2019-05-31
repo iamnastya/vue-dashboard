@@ -7,11 +7,6 @@
 <script>
 import "animate.css";
 import Vue from "vue";
-import VueAnalytics from "vue-analytics";
-
-Vue.use(VueAnalytics, {
-  id: "UA-141217049-1"
-});
 
 export default {
   name: "App",

@@ -4,6 +4,11 @@ import router from "./router";
 import store from "./store";
 import * as netlifyIdentityWidget from "netlify-identity-widget";
 import GoTrue from "gotrue-js";
+import VueAnalytics from "vue-analytics";
+
+Vue.use(VueAnalytics, {
+  id: "UA-141217049-1"
+});
 
 Vue.config.productionTip = false;
 
